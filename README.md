@@ -1,5 +1,4 @@
-# E.S.A-Security-Detecting
-Overdeveloping &amp; Security detecting in known or not known areas
+
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
