@@ -1,0 +1,6 @@
+2019/07/31 10:24:41:180  LastPass version: 4.7.1.4030
+2019/07/31 10:24:41:181  Device type: iPhone
+2019/07/31 10:24:41:185  OS version: 12.4
+2019/07/31 10:24:41:189  Locale: en
+2019/07/31 10:24:41:193  Network type: WiFi
+2019/07/31 10:24:41:206  Cellular carrier: 3 SE
