@@ -1,0 +1,2058 @@
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+    		
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="initial-scale=1.0" />
+        <meta name="Publisher" content="EEA, The European Environment Agency" />
+
+        <title>Ver.7 - Semantic Data Service - Resource properties</title>
+
+        <link rel="stylesheet" type="text/css" href="/css/eionet2007.css;jsessionid=259AF24D5D9AA6B0AF64B40C8271889C" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="/css/application.css;jsessionid=259AF24D5D9AA6B0AF64B40C8271889C" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="/css/eea.css;jsessionid=259AF24D5D9AA6B0AF64B40C8271889C" media="screen"/>
+        <link rel="shortcut icon" href="/favicon.ico;jsessionid=259AF24D5D9AA6B0AF64B40C8271889C" type="image/x-icon" />
+
+        <link type="text/css" href="/css/smoothness/jquery-ui-1.8.16.custom.css;jsessionid=259AF24D5D9AA6B0AF64B40C8271889C" rel="stylesheet" />
+        <script type="text/javascript" src="/scripts/jquery-1.6.2.min.js;jsessionid=259AF24D5D9AA6B0AF64B40C8271889C"></script>
+        <script type="text/javascript" src="/scripts/jquery-ui-1.8.16.custom.min.js;jsessionid=259AF24D5D9AA6B0AF64B40C8271889C"></script>
+        <script type="text/javascript" src="/scripts/jquery-timers.js;jsessionid=259AF24D5D9AA6B0AF64B40C8271889C"></script>
+        <script type="text/javascript" src="/scripts/jquery.autocomplete.js;jsessionid=259AF24D5D9AA6B0AF64B40C8271889C"></script>
+        
+        <script type="text/javascript" src="/scripts/util.js;jsessionid=259AF24D5D9AA6B0AF64B40C8271889C"></script>
+        <script type="text/javascript" src="/scripts/pageops.js;jsessionid=259AF24D5D9AA6B0AF64B40C8271889C"></script>
+        <script type="text/javascript" src="/scripts/prototype.js;jsessionid=259AF24D5D9AA6B0AF64B40C8271889C"></script>
+        <script type="text/javascript" src="/scripts/map.js;jsessionid=259AF24D5D9AA6B0AF64B40C8271889C"></script>
+        <script type="text/javascript" src="/scripts/eea.js;jsessionid=259AF24D5D9AA6B0AF64B40C8271889C"></script>
+        
+
+        <script type="text/javascript">
+		// <![CDATA[
+            ( function($) {
+                $(document).ready(
+                    function(){
+                        // onClick handler for add-bookmark link (open add-bookmark dialog)
+                        $("#add_bookmark").click(function() {
+                            $('#bookmark_dialog').dialog('open');
+                            return false;
+                        });
+
+                        // The add-bookmark dialog setup
+                        $('#bookmark_dialog').dialog({
+                            autoOpen: false,
+                            width: 500
+                        });
+
+                        // onClick handler for submit button in add-bookmark dialog that closes the dialog
+                        $("#bookmark_form_submit").click(function() {
+                            $('#bookmark_dialog').dialog("close");
+                            return true;
+                        });
+
+                         // onClick handler for add-to_dataset link (open add_dataset dialog)
+                        $("#add_to_dataset").click(function() {
+                            $('#dataset_dialog').dialog('open');
+                            return false;
+                        });
+
+                        // The dataset dialog setup
+                        $('#dataset_dialog').dialog({
+                            autoOpen: false,
+                            width: 400
+                        });
+
+                        // onClick handler for submit button in dataset dialog that closes the dialog
+                        $("#dataset_form_submit").click(function() {
+                            $('#dataset_dialog').dialog("close");
+                            return true;
+                        });
+
+                        // onClick handler for links that open full values of predicate objects
+                        // in a dialog window (used when the full value is too long to display on factsheet)
+                        $("[id^=predObjValueLink]").click(function() {
+                            $('#predObjValueDialog').dialog('open');
+                            $('#predObjValueDialog').append('<img src="/images/wait.gif" alt="Wait clock"/>');
+                            $('#predObjValueDialog').load($(this).attr("href"));
+                            return false;
+                        });
+
+                        // Setup of the modal dialog that displays full value of objects that are too long
+                        // to display on factsheet.
+                        $('#predObjValueDialog').dialog({
+                            autoOpen: false,
+                            height: 500,
+                            width: 700,
+                            maxHeight: 800,
+                            maxWidth: 800,
+                            modal: true,
+                            closeOnEscape: true
+                        });
+
+                        $("#harvestLink").click(function() {
+                            $('#harvestDialog').dialog('option','width', 600);
+                            $('#harvestDialog').dialog('open');
+                            return true;
+                        });
+
+                        $('#harvestDialog').dialog({
+                            autoOpen: false,
+                            height: 200,
+                            width: 600,
+                            maxHeight: 800,
+                            maxWidth: 800,
+                            modal: true,
+                            closeOnEscape: true
+                        });
+
+                    });
+            } ) ( jQuery );
+// ]]>
+        </script>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+                <style type="text/css">
+/* - critical.css - */
+/* https://www.eea.europa.eu/portal_css/critical.css?original=1 */
+/* */
+/* */
+/* */
+/* */
+@font-face {
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 400;
+font-display: swap;
+src: local('Open Sans Regular'), local('OpenSans-Regular'), url("https://www.eea.europa.eu/templates/v2/fonts/GoogleFonts-OpenSans-Regular1-v15.woff2") format('woff2');
+unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* */
+@font-face {
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 400;
+font-display: swap;
+src: local('Open Sans Regular'), local('OpenSans-Regular'), url("https://www.eea.europa.eu/templates/v2/fonts/GoogleFonts-OpenSans-Regular2-v15.woff2") format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* */
+@font-face {
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 700;
+font-display: swap;
+src: local('Open Sans Bold'), local('OpenSans-Bold'), url("https://www.eea.europa.eu/templates/v2/fonts/GoogleFonts-OpenSans-Bold1-v15.woff2") format('woff2');
+unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* */
+@font-face {
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 700;
+font-display: swap;
+src: local('Open Sans Bold'), local('OpenSans-Bold'), url("https://www.eea.europa.eu/templates/v2/fonts/GoogleFonts-OpenSans-Bold2-v15.woff2") format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@media screen {
+* {margin: 0; padding: 0;}
+}
+* {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+:link,:visited { text-decoration:none }
+ul,ol { list-style:none; }
+h1,h2,h3,h4,h5,h6,pre,code { font-size:1em; }
+a img,:link img,:visited img { border:none }
+a { outline: none; }
+table { border-spacing: 0; }
+img { vertical-align: text-bottom; }
+iframe {
+border: 0 none;
+}
+input, button, select, textarea {
+font-family: inherit;
+font-size: inherit;
+line-height: inherit;
+}
+label {
+font-weight: bold;
+}
+legend {
+display: block;
+margin-bottom: 17px;
+color: #333333;
+}
+.clearfix::after, .container::after, .container-fluid::after, .row::after, .form-horizontal .form-group::after, .nav::after, .navbar::after, .navbar-header::after, .navbar-collapse::after {
+clear: both;
+}
+.clearfix::before, .clearfix::after, .container::before, .container::after, .container-fluid::before, .container-fluid::after, .row::before, .row::after, .form-horizontal .form-group::before, .form-horizontal .form-group::after, .nav::before, .nav::after, .navbar::before, .navbar::after, .navbar-header::before, .navbar-header::after, .navbar-collapse::before, .navbar-collapse::after {
+content: " ";
+display: table;
+}
+.visualClear {
+display: block;
+clear: both;
+}
+.hiddenStructure {
+display: block !important;
+background: transparent none;
+border: none;
+height: 1px;
+overflow: hidden;
+padding: 0;
+margin: -1px 0 0 -1px;
+width: 1px;
+}
+.eea-slide-tooltips, #portal-logo-link-header, .navbar-toggle, .hiddenElem, .site-description, #print-warning, #portal-globalnav #portaltab-more, #portal-globalnav #portaltab-eeahome, #portal-searchbox .gsc-branding  {
+display: none;
+}
+.hidden {
+display: none !important;
+}
+html{font-size:16px !important;}body{font:75% 'Open Sans',Verdana,Helvetica,Arial,sans-serif;color:#333;margin:0;padding:0;background-color:#e8f0fb !important;}#cross-site-top{background-color:#069;margin:0;padding:0;}#globalnav-holder{background-color:#069;width:100%;display:block;overflow:hidden;order: 2;}#portal-header,#visual-portal-wrapper{max-width:1024px}#visual-portal-wrapper{margin:0 auto;padding:0;clear:both;overflow:visible}#portal-column-content{padding:0 1.5em 1.5em;min-width: 635px;}#footer-wrapper{background-color:#069;margin:2em 0;padding:2em 1em;clear:both;border-top:8px solid #FFF}
+.pull-right {
+float: right !important;
+}
+.container {
+margin: 0 auto;
+padding: 0 15px;
+}
+.col-md-5, .col-md-6, .col-sm-6 {
+float: left;
+position: relative;
+padding: 0 15px;
+}
+@media (min-width: 768px) {
+.col-sm-6 {
+width: 50%;
+}
+}
+@media (min-width: 992px) {
+.col-md-5 {
+width: 41.66666667%;
+}
+}
+a { color: #346f83;
+cursor: pointer}
+a:hover {
+color: #8e004d;
+}
+a:visited {
+color: #8e004d;
+}
+h1, h2, h3, h4, h5, h6 {
+color: #006699;
+font-weight: bold;
+font-family: 'Open Sans', Verdana, Helvetica, Arial, sans-serif;
+line-height: 1.5;
+}
+p {
+font-family: 'Open Sans', Verdana, Helvetica, Arial, sans-serif;
+margin: 0 0 0.75em 0;
+line-height: 1.5em;
+}
+ul {
+margin: 0 0 0 1.5em;
+}
+.navTree {
+list-style: none none;
+}
+select {
+border: 1px solid #cccccc;
+color: #333333;
+vertical-align: top;
+background: white;
+}
+.pull-left {
+float: left !important;
+}
+.list-items > li {
+display: list-item;
+}
+.contentViews li {
+display: inline;
+}
+.list-inline li {
+display: inline;
+}
+.list-inline li::before {
+content: " ";
+}
+@media screen {
+.position-0 {
+margin-left: -100%;
+}
+.width-full {
+width: 100%;
+}
+.row {
+float: left;
+width: 100%;
+display: block;
+position: relative;
+}
+.cell {
+position: relative;
+float: left;
+left: 100%;
+}
+.width-3\3A 4 {
+width: 58.5%;
+}
+}
+#portal-column-two {
+min-width: 350px;
+}
+#portal-column-two .portlet {
+margin: 0 0 1em 0;
+}
+.position-3\3a 4 {
+margin-left: -35.5%;
+}
+.width-1\3A 4 {
+width: 35.5%;
+}
+.panel {
+display: none;
+z-index: 600;
+background: transparent;
+border: 0;
+}
+#portal-personaltools-wrapper {
+min-height: 10px;
+font-size: 110%;
+order: 2;
+}
+#portal-personaltools {
+background-color: #009966;
+color: #fff;
+line-height: 1.6em;
+padding: 0.3em 0.5em 0.5em;
+margin: 0;
+z-index: 3;
+position: relative;
+font-size: 80%;
+}
+.deactivated .actionMenuContent {
+display: none;
+}
+#portal-externalsites, #portal-siteactions {
+margin: 4px 0 4px 0;
+padding: 0 10px 0 0;
+}
+#portal-externalsites {
+margin-left: 0.5em;
+}
+#cross-site-top {
+display: flex;
+flex-grow: 1;
+min-width: 80%;
+}
+#cross-site-top .eea-siteaction {
+display: inline;
+padding: 0 5px;
+margin-right: 0.5em;
+}
+#cross-site-top .eea-siteaction {
+font-size: 11px;
+}
+.eea-siteaction > a,
+.eea-siteaction > a:hover,
+.eea-siteaction .eea-icon
+{
+color: #FFF;
+cursor: pointer;
+}
+#portal-siteactions {
+margin-left: auto;
+}
+#portal-siteactions, #portal-externalsites {
+display: block;
+}
+.navbar-collapse {
+overflow-x: visible;
+overflow-y: auto;
+width: 100%;
+max-height: 325px;
+}
+.navbar-toggle {
+position: relative;
+float: right;
+margin-right: 15px;
+padding: 9px 10px;
+margin-top: 1em;
+margin-bottom: 8px;
+background: transparent none;
+border: 1px solid #ddd;
+border-radius: 4px;
+cursor: pointer;
+}
+#header-holder {
+width: 100%;
+clear: both;
+display: block;
+position: relative;
+}
+#header-holder .navbar {
+box-shadow: 0 1px 10px #005078;
+background-color: #FFF;
+border: 0;
+margin-bottom: 17px;
+}
+#eea-above-columns {
+margin-top: -17px;
+}
+@media screen and (max-width: 767px) {
+#portal-logo-link-header, .navbar-toggle {
+display: block;
+}
+.collapse {
+display: none;
+}
+.sr-only {
+position: absolute;
+width: 1px;
+height: 1px;
+margin: -1px;
+padding: 0;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+border: 0;
+}
+.navbar-toggle .icon-bar {
+display: block;
+width: 22px;
+height: 2px;
+border-radius: 1px;
+background: #888;
+}
+.navbar-fixed-top{
+position: fixed;
+right: 0;
+left: 0;
+top: 0;
+z-index: 1030;
+min-height: 50px;
+}
+.navbar-collapse {
+background-color: #006699;
+padding: 0 15px;
+}
+.navbar-toggle .icon-bar + .icon-bar {
+margin-top: 4px;
+}
+.collapse.in {
+display: block;
+}
+}
+@media screen and (min-width: 768px) {
+#header-holder .container-fluid {
+padding: 0;
+}
+.navbar-collapse {
+display: block !important;
+height: auto !important;
+overflow: visible !important;
+}
+#portal-searchbox .gsc-search-button {
+cursor: pointer;
+height: 32px;
+margin: 0;
+width: 70px;
+border-radius: 0;
+font: bold 12px 'Open Sans';
+}
+}
+#portal-top {
+display: flex;
+flex-wrap: wrap;
+}
+#portal-header {
+display: flex;
+justify-content: space-between;
+clear: both;
+position: relative;
+margin: 0 auto;
+overflow: inherit;
+height: 90px;
+z-index: initial;
+order: 2;
+width: 100%;
+}
+.portal-logo {
+border: 0;
+margin: 0;
+padding: 0;
+position: relative;
+order: 1;
+}
+.portal-logo a {
+display: block;
+text-decoration: none;
+overflow: hidden;
+border: 0;
+margin: 0;
+padding: 0;
+cursor: pointer;
+}
+#printLogo {
+padding: 0.9em 0 0 0.5em;
+display: block;
+width: auto;
+height: 71px;
+}
+#portal-header .hiddenStructure {
+order: 3;
+}
+#portal-searchbox {
+margin: 20px 0 0 0;
+font-size: 1.2em;
+width: 350px;
+text-align: left;
+order: 3;
+}
+#portal-searchbox .gsc-control-cse {
+background-color: transparent;
+padding: 1px 0 0 0;
+border: 0;
+}
+#portal-searchbox .gsc-clear-button {
+display: none;
+}
+#portal-searchbox form {
+padding: 0;
+white-space: nowrap;
+margin-bottom: 0;
+}
+#portal-searchbox input.gsc-input-query {
+border: none;
+background: #fff;
+padding: 3px 6px;
+height: 30px !important;
+width: 100%;
+vertical-align: top;
+font: italic 16px 'Open Sans', Verdana, Helvetica, Arial, sans-serif;
+}
+.gsc-search-box td {
+padding: 0;
+}
+#portal-searchbox .gsib_b {
+display: none;
+}
+#portal-searchbox .gsc-input-box {
+height: 100%;
+position: relative;
+}
+#portal-searchbox .gsc-tabsArea > div {
+overflow: visible;
+}
+#portal-searchbox .gsc-cursor-current-page {
+padding: 5px;
+}
+#portal-searchbox .autocomplete-items {
+position: absolute;
+border: 1px solid #d4d4d4;
+border-bottom: none;
+border-top: none;
+z-index: 9999;
+top: 100%;
+left: 0;
+right: 0;
+}
+#portal-searchbox .autocomplete-item {
+padding: 10px;
+cursor: pointer;
+background-color: #fff;
+border-bottom: 1px solid #d4d4d4;
+overflow: hidden;
+}
+#portal-searchbox .autocomplete-active {
+background-color: #e9e9e9 !important;
+}
+.plone-breadcrumb {
+background-color: #e6e4e4;
+font-size: 100%;
+box-shadow: 0 2px 10px #ccc;
+margin-bottom: 1.5em;
+}
+.plone-breadcrumb .container {
+max-width: 1024px;
+width: 100%;
+margin: auto;
+padding: 0;
+}
+.plone-breadcrumb  li {
+font-weight: 400;
+display: inline-block;
+line-height: 0;
+position: relative;
+padding: 0 25px 0 0;
+}
+.plone-breadcrumb ol {
+display: inline-block;
+padding: 8px 5px;
+list-style: none;
+margin: 0;
+}
+.mini-header #globalnav-holder {
+overflow: visible;
+}
+#portal-globalnav {
+clear: both;
+display: flex;
+font-size: 105%;
+height: 50px;
+list-style: none;
+margin: 0 auto;
+max-width: 1024px;
+padding: 0;
+position: relative;
+}
+#portal-globalnav > li, #secondary-portaltabs > li {
+margin-bottom: 0;
+height: 50px;
+display: flex;
+}
+#portal-globalnav > li > a, #secondary-portaltabs > li > a {
+display: flex;
+align-items: center;
+}
+#portal-globalnav > li > a {
+font-weight: bold;
+color: white;
+padding: 1em 0.8em;
+}
+#portaltab-media {
+margin: 0 0 0 auto;
+}
+#portaltab-europe {
+width: 212px;
+font-size: 75%;
+vertical-align: top;
+padding-right: 92px;
+background: url("https://www.eea.europa.eu/templates/v2/img/eu-flag.png") no-repeat 122px -3px;
+}
+#portaltab-europe a {
+font-weight: normal !important;
+}
+li#secondary-portaltabs-container {
+display: none;
+}
+.portalMessage {
+background-color: #f3f3f3;
+padding: 1em;
+clear:both;
+}
+#megatopics-area {
+font-size: 0.9em;
+margin-bottom: 1.5em;
+display: flex;
+flex-wrap: wrap;
+-ms-flex-wrap: nowrap;
+justify-content: space-between;
+width: 100%;
+}
+#megatopics-area .portlet, #megatopics-area dd {
+margin: 0;
+padding: 0;
+min-height: 255px;
+}
+.portlet-megatopic {
+display: flex;
+white-space: nowrap;
+flex: 1;
+}
+.portlet, .portletWrapper .featured {
+background: #ffffff;
+}
+.portlet-megatopic ul {
+height: auto;
+margin: 1.5em;
+padding: 0;
+}
+#portal-columns {
+padding-top: 1em;
+}
+/* */
+#region-content {
+padding: 1.5em;
+background-color: #ffffff;
+}
+@media screen and (min-width: 1024px) {
+#region-content {
+margin: 0 -1.5em;
+}
+}
+.template-datamaps_view #region-content,
+.template-dc_view #region-content,
+.frontpage .width-full,
+.frontpage #region-content {
+background-color: transparent;
+padding: 0;
+}
+.content-core p,
+.content-core li {
+font-size: 115%;
+}
+.content-core li, .portlet li, .portletStaticText li {
+margin-bottom: 0.25em;
+line-height: 1.5em;
+display: list-item;
+}
+.documentContent li a {
+display: inline;
+}
+.content-core ul {
+margin-left: 1.5em;
+}
+.content-core dt {
+font-weight: bold;
+margin-bottom: 0;
+}
+.portletHeader, .portlet .portletHeader {
+font-weight: normal;
+margin-bottom: 1em;
+}
+#content .featured p:last-child {
+margin-bottom: 0;
+}
+/* */
+#main-content {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+.column-area, .right-column-area {
+width: 58.5%;
+flex-basis: 58.5%;
+margin: 0 0;
+padding: 0;
+}
+.right-column-area {
+width: 39%;
+flex-basis: 37.5%;
+order: 1;
+}
+.frontpage #highlights-area {
+padding: 0;
+overflow: hidden;
+}
+#highlights-area {
+background-color: #ffffff;
+padding: 1.5em;
+}
+.featured {
+background: #ffffff;
+}
+.featured, .portlet {
+margin-bottom: 1em;
+padding: 1.5em;
+}
+.figure-left {
+float: left;
+}
+#article-language {
+margin-top: -40px;
+position: absolute;
+right: 1.5em;
+display: block;
+}
+.documentExportActions {
+float: right;
+margin: 0 0 1em 1em;
+}
+.eea-tabs-panels {
+background-color: #ffffff;
+padding: 1.5em;
+clear: both;
+}
+.eea-tabs-panel {
+display: none;
+}
+.eea-tabs-panel:first-of-type {
+display: block;
+}
+#news-header {
+height: 35px;
+clear: both;
+display: block;
+margin: 14px 0 5px 0;
+}
+#news-header h2 {
+border: none;
+font-size: 160%;
+font-weight: normal;
+margin: 6px;
+padding: 0;
+}
+#articles-area h2 {
+padding-top: 0;
+line-height: 1em;
+border-bottom: 0;
+font-weight: normal;
+}
+#semantic-data-service {
+margin-top: 0;
+}
+#topic-selector {
+position: absolute;
+margin-top: 2.8em;
+left: 0;
+margin-left: 8em;
+}
+.filter-topic {
+float: left;
+text-align: left;
+width: 81%;
+padding-top: 6px;
+margin-top: 0;
+}
+.gallery-layout-selection {
+float: right;
+position: relative;
+top: 5px;
+list-style: none;
+margin-bottom: 10px;
+display: inline;
+}
+#visual-portal-wrapper .eea-tabs {
+padding: 0 10px 0 0;
+margin: 0;
+font-size: 12px;
+list-style: none none;
+background-color: #006699;
+border: 1px solid #ececec;
+border-bottom: 0;
+}
+.eea-tabs::before, .eea-tabs::after {
+display: table;
+content: " ";
+clear: both;
+}
+#whatsnew-gallery .eea-tabs > li {
+float: left;
+}
+#visual-portal-wrapper .eea-tabs.two-rows > li > a {
+line-height: 2.5;
+}
+.eea-tabs > li {
+margin: 0;
+padding: 0;
+display: inline-block;
+}
+.eea-tabs > li > a {
+max-width: 195px;
+position: relative;
+display: block;
+color: #fff;
+text-shadow: 1px 1px 1px #000000;
+padding: 8px;
+}
+.eea-tabs.two-rows > li > a {
+line-height: 1.35;
+}
+.tileImage {
+float: left;
+margin: 1em 1em 1em 0;
+}
+.archives {
+float: right;
+margin: 1.5em 25px 15px 15px;
+position: relative;
+top: 8px;
+line-height: 1em;
+}
+#eea-mobile-shortcut.shortcut-default, #enquiry-service-shortcut.shortcut-default {
+padding: 25px 21px;
+}
+.shortcut-default {
+text-align: left;
+padding: 1.5em;
+background: #ffffff;
+margin-bottom: 1em;
+}
+#portal-colophon {
+margin: 0;
+padding: 0.5em 1em 1em 1em;
+text-align: center;
+clear: both;
+}
+.colophonWrapper {
+text-align: left;
+margin: 0 auto;
+display: flex;
+}
+.colophon-left {
+width: 215px;
+}
+.colophon-middle {
+text-align: center;
+flex: 1;
+}
+.colophon-right {
+width: 215px;
+}
+.colophon-right span {
+float: left;
+width: 155px;
+}
+.colophon-right img {
+float: right;
+width: 50px;
+}
+/* */
+/* */
+
+</style>
+
+
+
+
+
+
+
+
+
+                    <link rel="stylesheet" onload="this.onload=null;this.rel=&#39;stylesheet&#39;" href="https://www.eea.europa.eu/templates/v2/css/ploneStyles1556216956679276943.css" as="style">
+                    <noscript><link rel="stylesheet" href="https://www.eea.europa.eu/templates/v2/css/ploneStyles1556216956679276943.css" /></noscript>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link rel="stylesheet" onload="this.onload=null;this.rel=&#39;stylesheet&#39;" href="https://www.eea.europa.eu/templates/v2/css/ploneStyles1556216956682688951.css" as="style">
+                    <noscript><link rel="stylesheet" href="https://www.eea.europa.eu/templates/v2/css/ploneStyles1556216956682688951.css" /></noscript>
+
+
+
+
+    <script type="text/javascript">
+        !function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){function e(){t.media=a}var a=t.media||"all";t.addEventListener?t.addEventListener("load",e):t.attachEvent&&t.attachEvent("onload",e),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(e,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+
+      <script type="text/javascript" src="https://www.eea.europa.eu/templates/v2/js/raven.min.js"></script>
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://www.eea.europa.eu/templates/v2/js/ploneScripts1556216698151504993.js"></script>
+    <script type="text/javascript" src="https://www.eea.europa.eu/templates/v2/js/ploneScripts1556216698156459093.js"></script>
+
+
+
+                    <script type="text/javascript"> context_url='https://www.eea.europa.eu';</script>
+
+
+
+
+<style type="text/css">.fancybox-margin{margin-right:0px;}</style>
+
+    </head>
+    <body>
+    
+        <div id="header-holder">
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar">&nbsp;</span>
+                        <span class="icon-bar">&nbsp;</span>
+                        <span class="icon-bar">&nbsp;</span>
+                    </button>
+                    <div id="bs-example-navbar-collapse-1" class="navbar-collapse collapse">
+                        <div id="portal-top">
+                            <!-- ClickTale Top part -->
+<!-- ClickTale end of Top part -->
+
+<div id="cross-site-top">
+
+    <ul id="portal-externalsites">
+        <li id="externalsites-networks" class="eea-siteaction">
+            <a href="https://www.eea.europa.eu/">Networks</a>
+        </li>
+    </ul>
+    <div class="panel" id="tip-externalsites-networks" style="width:450px; margin-left: 10em;">
+        <div class="panel-top" style="left: -195px;"><!-- --></div>
+        <div class="panel-content shadow">
+            <div class="networkSites">
+                <dl class="">
+                    <dt>Networks</dt>
+                    <dd>
+                        <ul class="eea-no-list-style">
+                            <li id="externalsites-eionet">
+                                <a title="Eionet" accesskey="" href="https://www.eionet.europa.eu/">Eionet</a>
+                            </li>
+                            <li id="externalsites-epanet">
+                                <a title="EPA network" accesskey="" href="http://epanet.pbe.eea.europa.eu/">Network of the Heads of Environment Protection Agencies (EPA network)</a>
+                            </li>
+                            <li id="seis-network">
+                                <a title="SEIS network" accesskey="" href="https://www.eea.europa.eu/about-us/what/shared-environmental-information-system">Shared Environmental Information System (SEIS)</a>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dt class="hiddenStructure">
+                        More networks
+                    </dt>
+                    <dd style="padding-bottom: 0.5em" class="portletFooter">
+                        <a class="moreLink" href="https://www.eea.europa.eu/about-us/key-partners">EU partners</a>&nbsp;&nbsp;
+                        <a class="moreLink" href="https://www.eea.europa.eu/about-us/international-cooperation">International cooperation</a>
+                    </dd>
+                </dl>
+                <dl class="">
+                    <dt>
+                        European Topic Centres (ETCs)
+                    </dt>
+                    <dd>
+                        <ul class="eea-no-list-style">
+                            <li>
+                                <a href="http://acm.eionet.europa.eu/">Air pollution and Climate Change mitigation (ACM)</a>
+                            </li>
+                            <li>
+                                <a href="http://bd.eionet.europa.eu/">Biological Diversity (BD)</a>
+                            </li>
+                            <li>
+                                <a href="http://cca.eionet.europa.eu/">Climate Change Impacts, Vulnerability and Adaptation (CCA)</a>
+                            </li>
+                            <li>
+                                <a href="http://icm.eionet.europa.eu/">Inland, Coastal and Marine waters (ICM)</a>
+                            </li>
+                            <li>
+                                <a href="http://uls.eionet.europa.eu/">Urban, Land and Soil systems (ULS)</a>
+                            </li>
+                            <li>
+                                <a href="http://wmge.eionet.europa.eu/">Waste and Materials in a Green Economy (WMGE)</a>
+                            </li>
+                        </ul>
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+
+
+       <ul id="portal-siteactions">
+
+
+               <li class="eea-siteaction" id="siteaction-subscriptions">
+                   <a href="https://www.eea.europa.eu/subscription" title="Subscriptions" accesskey="">
+                                   <span class="eea-icon eea-icon-envelope"><!-- --></span>
+                       <span class="siteaction-title">Subscriptions</span>
+                   </a>
+               </li>
+               <li class="eea-siteaction" id="siteaction-contactus">
+                   <a href="https://www.eea.europa.eu/contact-us/" title="Contact us" accesskey="">
+                                   <span class="eea-icon eea-icon-comment"><!-- --></span>
+                       <span class="siteaction-title">Contact us</span>
+                   </a>
+               </li>
+               <li class="eea-siteaction" id="siteaction-chooselang">
+                   <a href="https://www.eea.europa.eu/chooselang/" title="EEA homepage in your language" accesskey="">
+                                   <span class="eea-icon eea-icon-globe"><!-- --></span>
+                       <span class="siteaction-title">EEA homepage in your language</span>
+                   </a>
+               </li>
+               </ul>
+
+
+
+        <div id="js-siteaction-panels">
+            <div class="panel" id="tip-siteaction-subscriptions">
+                <div class="panel-top">
+                    <!-- -->
+                </div>
+                <div class="panel-content shadow">
+
+                      <div>
+
+<dl class="portlet portlet-subscription">
+
+      <dt>Subscriptions</dt>
+      <dd class="portletItem">
+        <span><span><a href="https://www.eea.europa.eu/subscription/targeted-subscription">Sign up</a></span> to receive our reports (print and/or electronic) and quarterly e-newsletter.</span>
+      </dd>
+
+        <dt>Follow us</dt>
+        <dd>
+          <div>
+              <span class="eea-icon eea-icon-twitter-square eea-icon-lg">&nbsp;</span>
+              <a href="http://twitter.com/euenvironment">Twitter</a>
+          </div>
+          <div>
+
+              <span class="eea-icon eea-icon-facebook-square eea-icon-lg">&nbsp;</span>
+              <a href="http://www.facebook.com/pages/European-Environment-Agency/113006845445297">Facebook</a>
+          </div>
+          <div>
+              <span class="eea-icon eea-icon-youtube-square eea-icon-lg">&nbsp;</span>
+              <a href="http://www.youtube.com/user/EEAvideos">YouTube channel</a>
+          </div>
+          <div>
+              <span class="eea-icon eea-icon-rss-square eea-icon-lg">&nbsp;</span>
+              <a href="https://www.eea.europa.eu/subscription/news-feeds/">
+            <span>RSS Feeds</span></a>
+          </div>
+          <div class="portletFooter" style="padding-bottom: 0.5em">
+            <a class="moreLink" href="https://www.eea.europa.eu/subscription">
+               <span>More subscriptions info</span></a>
+          </div>
+        </dd>
+
+</dl>
+
+</div>
+
+                </div>
+            </div>
+          <div id="tip-siteaction-formobile" class="panel">
+              <div class="panel-top">
+                  <!-- -->
+              </div>
+              <div class="panel-content shadow">
+                  <a href="https://www.eea.europa.eu/www/mobile" title="Mobile apps">Mobile apps</a>
+              </div>
+            </div>
+
+            <div class="panel" id="tip-siteaction-contactus">
+                <div class="panel-top">
+                    <!-- -->
+                </div>
+                <div class="panel-content shadow">
+                    <table>
+                        <tbody><tr>
+                            <td style="width: 45%;">
+                                <h2>
+                                    <span class="eea-icon eea-icon-lg eea-icon-envelope">&nbsp;</span>
+                                    Write to us
+                                </h2>
+                                <p>
+                                    <strong>For the public:</strong>
+                                </p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <p>
+                                            <a target="_self" href="http://community.eea.europa.eu/">Ask your question <br></a>
+                                        </p>
+                                    </li>
+                                </ul>
+                                <br>
+                                <strong style="white-space: nowrap">For media and journalists:</strong>
+                                <br>
+                                <ul class="list-inline">
+                                    <li>
+                                        <p>
+                                            <a target="_self" href="https://www.eea.europa.eu/media/">Press room <br></a>
+                                        </p>
+                                    </li>
+                                </ul>
+                                <br>
+                                <a class="internal-link" href="https://www.eea.europa.eu/help/contact-info">
+                                    <strong>Contact the web team</strong>
+                                </a>
+                                <br>
+                                <a class="internal-link" href="http://community.eea.europa.eu/">
+                                    <strong>FAQ</strong>
+                                </a>
+                                <br>
+                            </td>
+                            <td style="vertical-align: top;">
+                                <br>
+                            </td>
+                            <td style="vertical-align: top;">
+                                <h2>
+                                    <span class="eea-icon eea-icon-lg eea-icon-phone">&nbsp;</span>
+                                    Call us
+                                </h2>
+                                <strong>Reception:</strong>
+                                    <br>
+                                    <br>
+                                <strong>Phone:</strong>
+                                (+45) 33 36 71 00
+                                <br>
+                                <strong>Fax:</strong>
+                                (+45) 33 36 71 99
+                                <br>
+                                <br>
+                                <strong>
+                                    <a target="_self" href="https://www.eea.europa.eu/help/infocentre/index_html">
+                                        <br>
+                                    </a>
+                                </strong>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                    <div class="portletFooter">
+                        <a class="moreLink" href="https://www.eea.europa.eu/contact-us/">
+                            <span>More contact details</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel" id="tip-siteaction-chooselang">
+                <div class="panel-top">
+                    <!-- -->
+                </div>
+                <div class="panel-content shadow">
+
+                    <ul id="chooselang" class="list-items">
+
+                        <li><a href="https://www.eea.europa.eu/sq" title="Albanian">Albanian (sq)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/bg" title="Bulgarian">ÐÑÐ»Ð³Ð°ÑÑÐºÐ¸ (bg)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/bs" title="Bosnian">Bosnian (bs)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/cs" title="Czech">ÄeÅ¡tina (cs)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/hr" title="Croatian">Hrvatski (hr)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/da" title="Danish">dansk (da)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/nl" title="Dutch">Nederlands (nl)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/el" title="Greek">ÎµÎ»Î»Î·Î½Î¹ÎºÎ¬ (el)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/" title="English">English (en)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/et" title="Estonian">eesti (et)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/fi" title="Finnish">Suomi (fi)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/fr" title="French">FranÃ§ais (fr)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/de" title="German">Deutsch (de)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/hu" title="Hungarian">magyar (hu)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/is" title="Icelandic">Ãslenska (is)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/it" title="Italian">italiano (it)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/lv" title="Latvian">LatvieÅ¡u (lv)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/lt" title="Lithuanian">lietuviÅ³ (lt)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/mk" title="Macedonian">Macedonian (mk)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/mt" title="Maltese">Malti (mt)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/no" title="Norwegian">Norsk (no)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/pl" title="Polish">polski (pl)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/pt" title="Portuguese">PortuguÃªs (pt)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/ro" title="Romanian">RomÃ¢nÄ (ro)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/sk" title="Slovak">slovenÄina (sk)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/sl" title="Slovenian">SlovenÅ¡Äina (sl)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/es" title="Spanish">EspaÃ±ol (es)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/sv" title="Swedish">Svenska (sv)</a></li>
+
+                        <li><a href="https://www.eea.europa.eu/tr" title="Turkish">TÃ¼rkÃ§e (tr)</a></li>
+
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+
+
+   <div class="visualClear"><!-- &nbsp; --></div>
+</div>
+
+
+
+  <div id="popup_login_form" style="display:none;">
+
+
+        <dl class="portalMessage error enable_cookies_message" style="display:none">
+            <dt>Error</dt>
+            <dd>Cookies are not enabled. You must enable cookies before you can log in.</dd>
+        </dl>
+
+
+
+        <div class="portalMessage informationMessage">
+
+                <p>The EEA Web CMS works best with following browsers:</p>
+                <div class="cms-browsers-links">
+                    <ul>
+                        <li class="cms-chrome">Google Chrome (recommended)</li>
+                        <li class="cms-firefox">Firefox</li>
+                    </ul>
+                    <p class="discreet">Internet Explorer is not recommended for the CMS area.</p>
+                </div>
+
+        </div>
+
+            <form class="enableAutoFocus login_form" method="post" action="https://www.eea.europa.eu/login_form">
+
+                <div class="login-form">
+
+                    <input type="hidden" name="came_from" value="https://www.eea.europa.eu">
+
+                    <input type="hidden" name="next">
+
+                    <input type="hidden" name="ajax_load">
+
+                    <input type="hidden" name="ajax_include_head">
+
+                    <input type="hidden" name="target">
+
+                    <input type="hidden" name="mail_password_url">
+
+                    <input type="hidden" name="join_url">
+                    <input type="hidden" name="form.submitted" value="1">
+                    <input type="hidden" name="js_enabled" value="0">
+                    <input type="hidden" name="cookies_enabled" value="">
+                    <input type="hidden" name="login_name" value="">
+                    <input type="hidden" name="pwd_empty" value="0">
+
+                    <div class="field">
+
+                        <label rel="__ac_name">Login Name</label>
+
+
+
+
+
+                        <input type="text" size="15" name="__ac_name" value="">
+
+                </div>
+
+                <div class="field">
+
+                        <label rel="__ac_password">Password</label>
+
+
+
+                        <input type="password" size="15" name="__ac_password">
+                </div>
+
+
+
+                    <div class="formControls">
+
+                        <input class="context" type="submit" name="submit" value="Log in">
+
+                    </div>
+
+                </div>
+
+            </form>
+
+
+
+
+
+            <div class="login-forgotten-password">
+                <strong>Forgot your password?</strong>
+                <p class="discreet">If you have forgotten your password, <span>
+                        <a href="https://www.eea.europa.eu/mail_password_form?userid=">we can send you a new one</a></span>.</p>
+            </div>
+
+
+
+
+  </div>
+
+
+<div class="eea-i18n-js hiddenElem">
+    <div id="eeaPaginationNext">next</div>
+    <div id="eeaPaginationPrev">previous</div>
+    <div id="eeaPaginationItems">items</div>
+</div>
+
+<div id="portal-header">
+    <p class="hiddenStructure">
+  <a accesskey="2" href="https://www.eea.europa.eu/#content">Skip to content.</a> |
+
+  <a accesskey="6" href="https://www.eea.europa.eu/getHeader#eea-portlet-navigation-tree">Skip to navigation</a>
+</p>
+
+<h2 id="logo-en" class="portal-logo">
+
+    <a href="https://www.eea.europa.eu/" accesskey="1" id="portal-logo-link" title="European Environment Agency">
+        <img src="https://www.eea.europa.eu/templates/v2/img/pdflogo-web.png" alt="European Environment Agency" id="printLogo">
+    </a>
+</h2>
+
+
+
+<!-- THE SEARCHBOX DEFINITION -->
+<div id="portal-searchbox">
+  <script>(function() {
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = 'https://www.eea.europa.eu/eea-custom-search.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+      })();</script>
+  <div class="gsc-control-cse gsc-control-cse-en gsc-control-wrapper-cse">
+    <form method="get" class="gsc-search-box gsc-search-box-tools" autocomplete="off" action="https://www.eea.europa.eu/eea-custom-search">
+      <table class="gsc-search-box" cellspacing="0" cellpadding="0">
+        <tbody><tr>
+          <td class="gsc-input">
+            <div class="gsc-input-box">
+              <input type="text" name="q" class="gsc-input-query" placeholder="Search" data-tags-url="https://www.eea.europa.eu/eea-custom-search.tags">
+
+            <input name="source" type="hidden"><div class="autocomplete-items"></div></div>
+          </td>
+          <td class="gsc-search-button">
+            <button class="gsc-search-button gsc-search-button-v2">
+              <span class="eea-icon eea-icon-search">
+            </span></button>
+          </td>
+          <td class="gsc-clear-button">
+            <div class="gsc-clear-button">
+          </div></td>
+        </tr>
+      </tbody></table>
+    </form>
+  </div>
+  <div class="eea-search-links">
+
+    <a class="pull-right search_glossary_link" href="https://www.eea.europa.eu/help/glossary">A-Z Glossary</a>
+  </div>
+</div>
+
+<script type="text/javascript">var object_archived = false;;</script>
+
+</div>
+
+
+     <div id="globalnav-holder">
+        <h5 class="hiddenStructure">Sections</h5>
+        <ul id="portal-globalnav" class="portal-globalnav">
+
+
+
+                    <li id="portaltab-eeahome" class="plain">
+                     <a href="http://www.eea.europa.eu/" title="">
+                        <span>European Environment Agency</span>
+                    </a>
+                    </li>
+
+
+
+
+
+                    <li id="portaltab-themes" class="plain">
+                     <a href="https://www.eea.europa.eu/themes" title="Explore by environmental topics">
+                        <span>Topics</span>
+                    </a>
+                    </li>
+
+
+
+
+
+                    <li id="portaltab-countries" class="plain">
+                     <a href="https://www.eea.europa.eu/countries-and-regions" title="">
+                        <span>Countries</span>
+                    </a>
+                    </li>
+
+
+
+
+
+                    <li id="portaltab-data-and-maps" class="plain">
+                     <a href="https://www.eea.europa.eu/data-and-maps" title="Environmental data, charts, maps, indicators and interactive data applications">
+                        <span>Data and maps</span>
+                    </a>
+                    </li>
+
+
+
+
+
+                    <li id="portaltab-indicators" class="plain">
+                     <a href="https://www.eea.europa.eu/data-and-maps/indicators/" title="">
+                        <span>Indicators</span>
+                    </a>
+                    </li>
+
+
+
+
+
+                    <li id="portaltab-reports" class="plain">
+                     <a href="https://www.eea.europa.eu/publications" title="">
+                        <span>Publications</span>
+                    </a>
+                    </li>
+
+
+
+
+
+                    <li id="portaltab-media" class="plain">
+                     <a href="https://www.eea.europa.eu/media" title="">
+                        <span>Media</span>
+                    </a>
+                    </li>
+
+
+
+
+
+                    <li id="portaltab-abouteea" class="plain">
+                     <a href="https://www.eea.europa.eu/about-us" title="">
+                        <span>About us</span>
+                    </a>
+                    </li>
+
+
+
+
+
+                    <li id="portaltab-europe" class="plain">
+                     <a href="https://europa.eu/european-union/about-eu_en" title="">
+                        <span>The EEA is an agency of the European Union</span>
+                    </a>
+                    </li>
+
+
+
+
+
+            <li id="secondary-portaltabs-container">
+              <ul id="secondary-portaltabs" class="plain">
+
+              </ul>
+            </li>
+        </ul>
+    </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        
+        <div id="visual-portal-wrapper">
+
+        <!-- The wrapper div. It contains the three columns. -->
+        <div id="portal-columns" class="visualColumnHideTwo">
+            <!-- start of the main and left columns -->
+            <div id="visual-column-wrapper">
+                <!-- start of main content block -->
+                <div id="portal-column-content">
+                    <div id="content">
+                        <div class="documentContent" id="region-content">
+                            <a name="documentContent"></a>
+                            <div class="documentActions">
+                                <h5 class="hiddenStructure">Document Actions</h5>
+                                <!-- document actions are added here if needed -->
+                            </div>
+                            <!--  validation errors -->
+                            
+
+                            <!--  messages -->
+                            
+                                
+                                
+                                
+                            
+
+                            <!--  Home headers, content or default content -->
+                            
+                                
+                                
+                                    
+
+        
+            
+
+                
+
+
+
+<div id="tabbedmenu" class="tabbedmenu">
+    <ul>
+    
+        
+            
+                <li id="currenttab"><a class="current">Resource properties</a></li>
+            
+            
+        
+    
+        
+            
+            
+                <li>
+                    <a href="/references.action;jsessionid=259AF24D5D9AA6B0AF64B40C8271889C?search=&amp;uri=http%3A%2F%2Fwww.eea.europa.eu%2Fportal_workflow%2Flinguaflow%2Fstates%2Fpublished">Resource references</a>
+                </li>
+            
+        
+    
+    </ul>
+</div>
+
+
+                <br style="clear:left" />
+
+                
+                    
+
+                    
+                    
+
+                    
+                        
+                            
+                                
+                                <div style="margin-top:20px" class="note-msg">
+                                    <strong>Unknown</strong>
+                                    <p>The application has no information about
+                                        
+                                            
+                                                <a class="link-external" href="http://www.eea.europa.eu/portal_workflow/linguaflow/states/published">http://www.eea.europa.eu/portal_workflow/linguaflow/states/published</a>
+                                            
+                                            
+                                        
+                                    </p>
+                                </div>
+                            
+                            
+                            
+                        
+                    
+                
+
+                <div id="harvestDialog" title="Attempting harvest">
+                	<p>The harvest is being executed, please wait ...</p>
+                	<img src="/images/wait.gif" alt="Loading ..."/>
+                </div>
+
+            
+            
+        
+
+    
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- end of main content block -->
+
+                <!-- start of the left (by default at least) column -->
+                <div id="portal-column-one">
+                    <div class="visualPadding">
+<dl class="portlet" id="portlet-navigation-tree">
+  <dt class="portletHeader">
+    <span class="portletTopLeft"></span>
+    <a href="/" class="tile">Semantic Data Service</a>
+    <span class="portletTopRight"></span>
+  </dt>
+
+  <dd class="portletItem lastItem">
+                        
+
+
+
+
+
+
+
+
+
+
+<div id="leftcolumn" class="localnav">
+    <ul>
+        <li><a href="/documentation">Help and documentation</a></li>
+        <li><a href="/simpleSearch.action">Simple search</a></li>
+        
+        <li><a href="/customSearch.action">Custom search</a></li>
+        <li><a href="/typeSearch.action">Type search</a></li>
+        <li><a href="/tagSearch.action">Tag search</a></li>
+        <li><a href="/recentUploads.action">Recent uploads</a></li>
+        <li><a href="/browseDatasets.action">Browse datasets</a></li>
+        <li><a href="/sparql">SPARQL endpoint</a></li>
+        <li><a href="/sharedSparqlBookmarks.action">Shared SPARQL bookmarks</a></li>
+        <li><a href="/sources.action">Harvesting sources</a></li>
+        <li><a href="/harvestQueue.action">Harvest queue</a></li>
+        <li><a href="/home">User homes</a></li>
+        
+        
+        
+            <li><a href="/project">Projects</a></li>
+        
+    </ul>
+</div>
+
+                        <ul>
+                            <li>
+                                       
+                                            
+                                                <a id="loginlink" href="/login.action;jsessionid=259AF24D5D9AA6B0AF64B40C8271889C?login=" title="Login">Login</a>
+                                            
+                                            
+                                        
+                            </li>
+                        </ul>
+</dd>
+</dl>
+                    </div>
+                </div>
+                <!-- end of the left (by default at least) column -->
+            </div>
+            <!-- end of the main and left columns -->
+            <div class="visualClear"><!-- --></div>
+        </div>
+        <!-- end column wrapper -->
+        
+        </div>
+        
+        <div><div class="row">
+    <div id="footer-wrapper">
+        <div id="bg-wrapper">
+
+                <div id="portal-footer">
+
+
+
+
+
+                 </div>
+        </div>
+    </div>
+</div>
+
+<div id="portal-colophon">
+
+
+    <div class="colophonWrapper">
+        <div class="colophon-left">
+
+                <a href="https://www.eea.europa.eu/">European Environment Agency (EEA)</a>
+                <br>
+
+                    Kongens Nytorv 6<br> 1050 Copenhagen K<br> Denmark
+                    <br>
+                    Phone: +45 3336 7100
+
+
+        </div>
+
+        <div class="colophon-middle">
+            <p class="discreet colophon-links">
+                Engineered by:
+                <a href="https://www.eea.europa.eu/help/contact-info">EEA Web Team</a>
+            </p>
+
+            <p class="discreet colophon-links">
+
+                Template version:
+                <a href="https://github.com/eea/eea.docker.kgs/releases">EEA Plone KGS 19.4.17</a>
+            </p>
+
+            <p class="discreet colophon-links">
+
+                Template updated on
+                <strong>22 April 2019 12:33</strong>
+                from version <strong>19.4.15</strong>
+            </p>
+
+            <p class="discreet colophon-links">
+                <a rel="license" href="http://creativecommons.org/licenses/by/2.5/dk/deed.en_GB" title="Creative Commons Attribution License">
+                    <img alt="Creative Commons Attribution License" style="border-width: 0pt;" width="80" height="15" src="https://www.eea.europa.eu/templates/v2/img/creativecommons-by-2.5-dk-80x15.png">
+                </a>
+
+                <a href="https://www.eea.europa.eu/usage" title="Site statistics">Site usage</a>
+                <a href="https://www.eea.europa.eu/code" title="Code for developers">Code for developers</a>
+
+            </p>
+        </div>
+
+        <div class="colophon-right colophon-links">
+            <span>
+                The European Environment Agency (EEA) is an agency of the European Union.
+                <br>
+                <a href="https://www.eea.europa.eu/legal/">Legal notice</a>
+            </span>
+             <img width="50" height="37" alt="EU flag" title="European Union Flag" src="https://www.eea.europa.eu/templates/v2/img/eu-flag.gif">
+            <br>
+        </div>
+
+        <div class="footer-clear">&nbsp;</div>
+
+
+
+    </div>
+    <!-- Matomo noscript -->
+    <noscript><p><img src="https://matomo.eea.europa.eu/piwik.php?idsite=3&amp;rec=1" style="border:0;" alt=""/></p></noscript>
+    <!-- End Matomo Code -->
+
+</div>
+
+
+
+
+<script data-diazo-keep="true" type="application/ld+json">
+{
+  "@context": {
+    "http://schema.org/Image": "http://schema.org/ImageObject",
+    "http://schema.org/productID": "http://schema.org/about"
+  },
+  "@graph": [
+    {
+      "@id": "https://www.eea.europa.eu/image_print",
+      "@type": "http://schema.org/Image",
+      "http://schema.org/height": "2000px",
+      "http://schema.org/width": "2000px"
+    },
+    {
+      "@id": "#itemList2",
+      "@type": "http://schema.org/ItemList",
+      "http://schema.org/itemListElement": [
+        {
+          "@id": "LatestNewsListItem1"
+        },
+        {
+          "@id": "LatestNewsListItem2"
+        },
+        {
+          "@id": "LatestNewsListItem4"
+        },
+        {
+          "@id": "LatestNewsListItem3"
+        }
+      ]
+    },
+    {
+      "@id": "https://www.eea.europa.eu/folder_icon.gif",
+      "@type": "http://schema.org/Image"
+    },
+    {
+      "@id": "https://www.eea.europa.eu/image_tile",
+      "@type": "http://schema.org/Image",
+      "http://schema.org/height": "64px",
+      "http://schema.org/width": "64px"
+    },
+    {
+      "@id": "https://www.eea.europa.eu/logo-square.png#logo",
+      "@type": "http://schema.org/ImageObject",
+      "http://schema.org/height": "190px",
+      "http://schema.org/url": "https://www.eea.europa.eu/logo-square.png",
+      "http://schema.org/width": "190px"
+    },
+    {
+      "@id": "https://www.eea.europa.eu/image_wide",
+      "@type": "http://schema.org/Image",
+      "http://schema.org/height": "183px",
+      "http://schema.org/width": "325px"
+    },
+    {
+      "@id": "https://www.eea.europa.eu",
+      "http://schema.org/productID": "63D7ZKC5M2",
+      "http://schema.org/publisher": {
+        "@id": "https://www.eea.europa.eu#organization"
+      }
+    },
+    {
+      "@id": "https://www.eea.europa.eu/image_large",
+      "@type": "http://schema.org/Image",
+      "http://schema.org/contentSize": 13163,
+      "http://schema.org/height": "768px",
+      "http://schema.org/thumbnail": [
+        {
+          "@id": "https://www.eea.europa.eu/image_mini"
+        },
+        {
+          "@id": "https://www.eea.europa.eu/image_icon"
+        },
+        {
+          "@id": "https://www.eea.europa.eu/image_panoramic"
+        },
+        {
+          "@id": "https://www.eea.europa.eu/image_preview"
+        },
+        {
+          "@id": "https://www.eea.europa.eu/image_wide"
+        },
+        {
+          "@id": "https://www.eea.europa.eu/image_xlarge"
+        },
+        {
+          "@id": "https://www.eea.europa.eu/image_print"
+        },
+        {
+          "@id": "https://www.eea.europa.eu/image_thumb"
+        },
+        {
+          "@id": "https://www.eea.europa.eu/image_listing"
+        },
+        {
+          "@id": "https://www.eea.europa.eu/image_large"
+        },
+        {
+          "@id": "https://www.eea.europa.eu/image_tile"
+        }
+      ],
+      "http://schema.org/width": "768px"
+    },
+    {
+      "@id": "http://code.google.com/p/surfrdf/186b303d-9246-4bc8-ba52-a96c7ad1aebb",
+      "@type": "http://schema.org/SearchAction",
+      "http://schema.org/query-input": "required name=search_term_string",
+      "http://schema.org/target": "https://www.eea.europa.eu/"
+    },
+    {
+      "@id": "LatestNewsListItem1",
+      "@type": "http://schema.org/ListItem",
+      "http://schema.org/position": 1,
+      "http://schema.org/url": "https://www.eea.europa.eu/highlights/almost-all-car-makers-met-their"
+    },
+    {
+      "@id": "LatestNewsListItem2",
+      "@type": "http://schema.org/ListItem",
+      "http://schema.org/position": 2,
+      "http://schema.org/url": "https://www.eea.europa.eu/highlights/better-planning-and-methods-needed"
+    },
+    {
+      "@id": "LatestNewsListItem3",
+      "@type": "http://schema.org/ListItem",
+      "http://schema.org/position": 3,
+      "http://schema.org/url": "https://www.eea.europa.eu/highlights/industrial-emissions-to-water-decreased"
+    },
+    {
+      "@id": "LatestNewsListItem4",
+      "@type": "http://schema.org/ListItem",
+      "http://schema.org/position": 4,
+      "http://schema.org/url": "https://www.eea.europa.eu/highlights/challenges-for-achieving-clean-air"
+    },
+    {
+      "@id": "https://www.eea.europa.eu/image_thumb",
+      "@type": "http://schema.org/Image",
+      "http://schema.org/height": "128px",
+      "http://schema.org/width": "128px"
+    },
+    {
+      "@id": "https://www.eea.europa.eu/image_panoramic",
+      "@type": "http://schema.org/Image",
+      "http://schema.org/height": "1080px",
+      "http://schema.org/width": "1920px"
+    },
+    {
+      "@id": "https://www.eea.europa.eu/image_mini",
+      "@type": "http://schema.org/Image",
+      "http://schema.org/height": "200px",
+      "http://schema.org/width": "200px"
+    },
+    {
+      "@id": "https://www.eea.europa.eu#organization",
+      "@type": "http://schema.org/Organization",
+      "http://schema.org/contactPoint": {
+        "@id": "https://www.eea.europa.eu#contact-point-0"
+      },
+      "http://schema.org/logo": {
+        "@id": "https://www.eea.europa.eu/logo-square.png#logo"
+      },
+      "http://schema.org/name": "European Environment Agency",
+      "http://schema.org/sameAs": [
+        "https://twitter.com/euenvironment",
+        "https://www.facebook.com/European.Environment.Agency",
+        "https://www.youtube.com/user/EEAvideos"
+      ]
+    },
+    {
+      "@id": "https://www.eea.europa.eu/image_icon",
+      "@type": "http://schema.org/Image",
+      "http://schema.org/height": "32px",
+      "http://schema.org/width": "32px"
+    },
+    {
+      "@id": "https://www.eea.europa.eu/image_preview",
+      "@type": "http://schema.org/Image",
+      "http://schema.org/height": "400px",
+      "http://schema.org/width": "400px"
+    },
+    {
+      "@id": "https://www.eea.europa.eu/image_listing",
+      "@type": "http://schema.org/Image",
+      "http://schema.org/height": "16px",
+      "http://schema.org/width": "16px"
+    },
+    {
+      "@id": "https://www.eea.europa.eu#contact-point-0",
+      "@type": "http://schema.org/ContactPoint",
+      "http://schema.org/availableLanguage": [
+        "English",
+        "Danish"
+      ],
+      "http://schema.org/contactType": "customer support",
+      "http://schema.org/telephone": "(+45) 33 36 71 00"
+    },
+    {
+      "@id": "https://www.eea.europa.eu#website",
+      "@type": "http://schema.org/WebSite",
+      "http://schema.org/potentialAction": {
+        "@id": "http://code.google.com/p/surfrdf/186b303d-9246-4bc8-ba52-a96c7ad1aebb"
+      },
+      "http://schema.org/url": "https://www.eea.europa.eu"
+    },
+    {
+      "@id": "https://www.eea.europa.eu/image_xlarge",
+      "@type": "http://schema.org/Image",
+      "http://schema.org/height": "950px",
+      "http://schema.org/width": "950px"
+    }
+  ]
+}
+</script>
+
+
+</div>
+
+        
+    </body>
+</html>
+
+	    
+    	
+	
+

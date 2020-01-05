@@ -1,0 +1,114 @@
+<html><head><title>Welcome!</title>
+<style type="text/css">
+.block {
+    display:inline-block;
+    width:179px;
+    height:179px;
+    background-size:179px 179px;
+    margin:9px 7px;
+    padding:0px;
+    opacity:0.75;
+    cursor:pointer;
+    background-color:transparent;
+    border:none;
+}
+
+.block:hover {
+    opacity:1.0;
+}
+
+.download {
+    background: url(sprite.png) no-repeat top left;
+    background-position: -462px 0; width: 179px; height: 179px;
+}
+.manage {
+    background: url(sprite.png) no-repeat top left;
+    background-position: -1278px 0; width: 179px; height: 179px;
+}
+.profiles {
+    background: url(sprite.png) no-repeat top left;
+    background-position: -1686px 0; width: 179px; height: 179px;
+}
+.guide {
+    background: url(sprite.png) no-repeat top left;
+    background-position: -870px 0; width: 179px; height: 179px;
+}
+.dash_for_ios a {
+    background: url(sprite.png) no-repeat top left;
+    display:inline-block;
+    background-position: 0 0; width: 206px; height: 19px;
+    width:206px;
+    height:19px;
+    opacity:0.75;
+}
+
+.download:hover {
+    background-position: -666px 0; width: 179px; height: 179px;
+}
+.manage:hover {
+    background-position: -1482px 0; width: 179px; height: 179px;
+}
+.profiles:hover {
+    background-position: -1890px 0; width: 179px; height: 179px;
+}
+.guide:hover {
+    background-position: -1074px 0; width: 179px; height: 179px;
+}
+.dash_for_ios a:hover {
+    background-position: -231px 0; width: 206px; height: 19px;
+}
+#promo {
+    padding-bottom:10px;
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and ( min-device-pixel-ratio: 2),
+only screen and ( min-resolution: 192dpi),
+only screen and ( min-resolution: 2dppx)
+{
+    .download {
+        background: url(spriteRetina.png) no-repeat top left;
+        background-size: 2069px 179px !important;
+        background-position: -462px 0; width: 179px; height: 179px;
+    }
+    .manage {
+        background: url(spriteRetina.png) no-repeat top left;
+        background-size: 2069px 179px !important;
+        background-position: -1278px 0; width: 179px; height: 179px;
+    }
+    .profiles {
+        background: url(spriteRetina.png) no-repeat top left;
+        background-size: 2069px 179px !important;
+        background-position: -1686px 0; width: 179px; height: 179px;
+    }
+    .guide {
+        background: url(spriteRetina.png) no-repeat top left;
+        background-size: 2069px 179px !important;
+        background-position: -870px 0; width: 179px; height: 179px;
+    }
+    .dash_for_ios a {
+        background: url(spriteRetina.png) no-repeat top left;
+        background-size: 2069px 179px !important;
+        background-position: 0 0; width: 206px; height: 19px;
+    }
+}
+
+</style>
+</head>
+
+<body class='dash-internal' style='background-color:white; padding: 0px; margin: 0px;height: 95%; width: 100%; font-family: -apple-system, Helvetica Neue;-webkit-user-select:none;'>
+
+<div style='height:100%'>
+<div style='display:table; height: 100%; width: 100%;'><div style='display:table-cell; vertical-align:middle;'>
+<div style='text-align:center'>
+	<button class='block download' onclick="window.dash.openDownloads();" ></button>
+    <button class='block manage' onclick="window.dash.openDocsets();"></button><br>
+    <button class='block profiles' onclick="window.dash.openProfiles();"></button>
+    <button class='block guide' onclick="window.dash.openGuide();"></button>
+    <P class="dash_for_ios" id="promo"><a href="#" onclick="window.dash.openIOSLink();"></a></P>
+</div>
+</div>
+</div>
+</body>
+</html>
